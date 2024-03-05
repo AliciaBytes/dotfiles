@@ -1,0 +1,30 @@
+# Environment variable definitions
+# You may want to put all your additions into a separate file like
+# ~/.bash_env, instead of adding them here directly.
+if [ -f ~/.bash_env ]; then
+    . ~/.bash_env
+fi
+
+if [ -d ~/.bash_env.d ]; then
+    for envfile in ~/.bash_env.d/*; do
+        . $envfile
+    done
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
