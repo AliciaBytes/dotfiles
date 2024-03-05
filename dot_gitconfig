@@ -1,0 +1,26 @@
+[user]
+	name = Alicia Miedl
+	email = alicia@aliciabytes.com
+[core]
+	autocrlf = input
+	editor = code --wait
+[init]
+	defaultBranch = main
+[push]
+	default = simple
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[log]
+	showSignature = true
+[gpg]
+[commit]
+[tag]
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
