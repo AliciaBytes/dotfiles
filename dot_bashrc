@@ -34,6 +34,19 @@ if [ -d ~/.bash_aliases.d ]; then
     done
 fi
 
+# Function definitions
+# You may want to put all your additions into a separate file like
+# ~/.bash_functions, instead of adding them here directly.
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+if [ -d ~/.bash_functions.d ]; then
+    for functionfile in ~/.bash_functions.d/*; do
+        . $functionfile
+    done
+fi
+
 # Set up ssh-agent properly if a related script exists.
 if [ -f ~/.ssh/agent.sh ]; then
     . ~/.ssh/agent.sh
