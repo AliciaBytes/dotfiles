@@ -1,26 +1,51 @@
-[user]
-	name = Alicia Miedl
-	email = alicia@aliciabytes.com
+[branch]
+	sort = -committerdate
+[commit]
+	verbose = true
+	cleanup = scissors
 [core]
 	autocrlf = input
 	editor = code --wait
+	pager = delta
+	excludesfile = ~/.gitignore
+[diff]
+	tool = vscode
+	algorithm = histogram
+	submodule = log
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[fetch]
+	prune = true
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = delta
+[log]
+	showSignature = true
+	date = iso
+[merge]
+	tool = vscode
+	conflictStyle = zdiff3
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[pull]
+	rebase = true
 [push]
 	default = simple
 	autoSetupRemote = true
-[pull]
-	rebase = true
-[log]
-	showSignature = true
-[gpg]
-[commit]
-[tag]
-[diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
-[merge]
-	tool = vscode
-[mergetool "vscode"]
-	cmd = code --wait $MERGED
+[rebase]
+	autosquash = true
+	autostash = true
+[rerere]
+	enabled = true
+[status]
+	submoduleSummary = true
+[submodule]
+	recurse = true
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
+[url "git@github.com:"]
+	insteadOf = "gh:"
+[user]
+	name = Alicia Miedl
+	email = alicia@aliciabytes.com
