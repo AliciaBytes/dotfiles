@@ -1,0 +1,25 @@
+matches:
+  - trigger: ";now"
+    replace: {{ `{{output}}` }}
+    label: date
+    vars:
+      - name: output
+        type: date
+        params:
+          format: "%Y-%m-%d"
+  - trigger: ";now"
+    replace: {{ `{{output}}` }}
+    label: time
+    vars:
+      - name: output
+        type: date
+        params:
+          format: "%H:%M"
+  - trigger: ";now"
+    replace: {{ `{{output}}` }}
+    label: datetime
+    vars:
+      - name: output
+        type: date
+        params:
+          format: "%Y-%m-%dT%H:%M"
