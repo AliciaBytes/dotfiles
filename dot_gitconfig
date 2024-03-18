@@ -1,3 +1,5 @@
+[alias]
+	attribution = blame -w -C -C -C
 [branch]
 	sort = -committerdate
 [commit]
@@ -6,12 +8,14 @@
 [core]
 	autocrlf = input
 	editor = code --wait
-	pager = delta
 	excludesfile = ~/.gitignore
+	fsmonitor = true
+	pager = delta
+	untrackedcache = true
 [diff]
-	tool = vscode
 	algorithm = histogram
 	submodule = log
+	tool = vscode
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
@@ -21,18 +25,18 @@
 [interactive]
 	diffFilter = delta
 [log]
-	showSignature = true
 	date = iso
+	showSignature = true
 [merge]
-	tool = vscode
 	conflictStyle = zdiff3
+	tool = vscode
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 [pull]
 	rebase = true
 [push]
-	default = simple
 	autoSetupRemote = true
+	default = simple
 [rebase]
 	autosquash = true
 	autostash = true
@@ -47,5 +51,5 @@
 [url "git@github.com:"]
 	insteadOf = "gh:"
 [user]
-	name = Alicia Miedl
 	email = alicia@aliciabytes.com
+	name = Alicia Miedl
