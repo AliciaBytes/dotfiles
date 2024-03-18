@@ -1,0 +1,13 @@
+matches:
+  - trigger: ";ip"
+    replace: {{ `"{{ip}}"` }}
+    label: IPv4
+    vars:
+      - name: ip
+        type: shell
+        params:
+          {{- if eq .chezmoi.os "windows" }}
+          cmd: "(curl 'https://api64.ipify.org/').Content"
+          {{- else }}
+          cmd: "(curl 'https://api64.ipify.org/').Content"
+          {{- end }}
