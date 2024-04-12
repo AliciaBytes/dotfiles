@@ -1,4 +1,8 @@
-ssh_agent_env=~/.ssh/agent.env
+{{ if eq .chezmoi.os "windows" }}
+SSH_AUTH_SOCK='\\.\pipe\openssh-ssh-agent'
+{{ else }}
+SSH_AUTH_SOCK=~/.ssh/agent.sock
+{{ end }}
 ssh_key=~/.ssh/id_ed25519
 
 agent_load_env() {
@@ -29,7 +33,6 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 {{ if eq .chezmoi.os "windows" }}
-setx SSH_AGENT_PID "$SSH_AGENT_PID" >|/dev/null
 setx SSH_AUTH_SOCK "$SSH_AUTH_SOCK" >|/dev/null
 {{ end }}
 
