@@ -1,0 +1,4 @@
+# Services to start on the system.
+services:
+  windows:
+    - "ssh-agent"
