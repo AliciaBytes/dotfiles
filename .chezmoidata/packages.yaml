@@ -3,6 +3,8 @@ packages:
     features:
       - "OpenSSH.Client"
     winget:
-      - "Git.Git"
-      - "GnuPG.Gpg4win"
-      - "Microsoft.PowerShell"
+      interactive:
+        - "Git.Git"
+      silent:
+        - "GnuPG.Gpg4win"
+        - "Microsoft.PowerShell"

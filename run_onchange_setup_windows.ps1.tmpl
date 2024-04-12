@@ -1,8 +1,13 @@
 {{ if eq .chezmoi.os "windows" -}}
 
-{{ range .packages.windows.winget -}}
+# Silently install winget packages
+{{ range .packages.windows.winget.silent -}}
 winget install --id {{ . }} -e --source winget
+{{ end -}}
 
+# Interactively install winget packages
+{{ range .packages.windows.winget.interactive -}}
+winget install --id {{ . }} -e --source winget -i
 {{ end -}}
 
 # Self-elevate the script if required
