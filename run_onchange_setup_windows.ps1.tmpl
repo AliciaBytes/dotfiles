@@ -18,9 +18,14 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 Add-WindowsCapability -Online -Name {{ . }}
 {{ end -}}
 
-# Start SSH agent
-Set-Service -Name ssh-agent -StartupType Automatic
-Start-Service ssh-agent
+# Start services
+{{ range .services.windows -}}
+Set-Service -Name "{{ . }}" -StartupType Automatic
+$Service = Get-Service "{{ . }}"
+if ( $Service.Status -ne 'Running' ) {
+    Start-Service "{{ . }}"
+}
+{{ end -}}
 
 exit
 
