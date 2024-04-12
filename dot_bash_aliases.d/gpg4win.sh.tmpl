@@ -1,0 +1,20 @@
+{{ if eq .chezmoi.os "windows" -}}
+# Regenerate with: for file in /c/Program\ Files\ \(x86\)/GnuPG/bin/*.exe; do echo "alias $(basename "$(cygpath -u "$file" )" .exe)=\"$file\""; done
+alias dirmngr="/c/Program Files (x86)/GnuPG/bin/dirmngr.exe"
+alias dirmngr_ldap="/c/Program Files (x86)/GnuPG/bin/dirmngr_ldap.exe"
+alias gpg="/c/Program Files (x86)/GnuPG/bin/gpg.exe"
+alias gpg-agent="/c/Program Files (x86)/GnuPG/bin/gpg-agent.exe"
+alias gpg-card="/c/Program Files (x86)/GnuPG/bin/gpg-card.exe"
+alias gpg-check-pattern="/c/Program Files (x86)/GnuPG/bin/gpg-check-pattern.exe"
+alias gpgconf="/c/Program Files (x86)/GnuPG/bin/gpgconf.exe"
+alias gpg-connect-agent="/c/Program Files (x86)/GnuPG/bin/gpg-connect-agent.exe"
+alias gpgme-w32spawn="/c/Program Files (x86)/GnuPG/bin/gpgme-w32spawn.exe"
+alias gpg-preset-passphrase="/c/Program Files (x86)/GnuPG/bin/gpg-preset-passphrase.exe"
+alias gpgsm="/c/Program Files (x86)/GnuPG/bin/gpgsm.exe"
+alias gpgtar="/c/Program Files (x86)/GnuPG/bin/gpgtar.exe"
+alias gpgv="/c/Program Files (x86)/GnuPG/bin/gpgv.exe"
+alias gpg-wks-client="/c/Program Files (x86)/GnuPG/bin/gpg-wks-client.exe"
+alias keyboxd="/c/Program Files (x86)/GnuPG/bin/keyboxd.exe"
+alias pinentry-basic="/c/Program Files (x86)/GnuPG/bin/pinentry-basic.exe"
+alias scdaemon="/c/Program Files (x86)/GnuPG/bin/scdaemon.exe"
+{{ end -}}

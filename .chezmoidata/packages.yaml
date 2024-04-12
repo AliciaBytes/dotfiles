@@ -1,0 +1,8 @@
+packages:
+  windows:
+    features:
+      - "OpenSSH.Client"
+    winget:
+      - "Git.Git"
+      - "GnuPG.Gpg4win"
+      - "Microsoft.PowerShell"
