@@ -9,5 +9,5 @@ matches:
           {{- if eq .chezmoi.os "windows" }}
           cmd: "(curl 'https://api64.ipify.org/').Content"
           {{- else }}
-          cmd: "(curl 'https://api64.ipify.org/').Content"
+          cmd: "curl 'https://api64.ipify.org/'"
           {{- end }}
