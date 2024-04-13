@@ -5,19 +5,12 @@ SSH_AUTH_SOCK=~/.ssh/agent.sock
 {{ end }}
 ssh_key=~/.ssh/id_ed25519
 
-agent_load_env() {
-    test -f "$ssh_agent_env" && . "$ssh_agent_env" >|/dev/null
-}
-
 agent_start() {
     (
         umask 077
-        ssh-agent >|"$ssh_agent_env"
+        ssh-agent -a "$SSH_AUTH_SOCK" >|/dev/null
     )
-    . "$ssh_agent_env" >|/dev/null
 }
-
-agent_load_env
 
 # agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
 agent_run_state=$(
@@ -25,10 +18,10 @@ agent_run_state=$(
     echo $?
 )
 
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+if [ $agent_run_state = 2 ]; then
     agent_start
     ssh-add "$ssh_key"
-elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+elif [ $agent_run_state = 1 ]; then
     ssh-add "$ssh_key"
 fi
 
@@ -36,5 +29,4 @@ fi
 setx SSH_AUTH_SOCK "$SSH_AUTH_SOCK" >|/dev/null
 {{ end }}
 
-unset ssh_agent_env
 unset ssh_key
