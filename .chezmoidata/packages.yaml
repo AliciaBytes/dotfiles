@@ -6,5 +6,9 @@ packages:
       interactive:
         - "Git.Git"
       silent:
+        - "Espanso.Espanso"
         - "GnuPG.Gpg4win"
         - "Microsoft.PowerShell"
+        - "Microsoft.PowerToys"
+        - "Microsoft.VisualStudioCode"
+        - "Starship.Starship"
