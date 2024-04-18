@@ -3,8 +3,9 @@
 [branch]
     sort = -committerdate
 [commit]
-    verbose = true
     cleanup = scissors
+    gpgSign = true
+    verbose = true
 [core]
     autocrlf = input
     editor = code --wait
@@ -52,10 +53,12 @@
     submoduleSummary = true
 [submodule]
     recurse = true
+[tag]
+    gpgSign = true
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
 [url "git@github.com:"]
     insteadOf = "gh:"
 [user]
-    email = alicia@aliciabytes.com
-    name = Alicia Miedl
+    email = {{ .email | quote}}
+    name = {{ .name | quote }}

@@ -3,7 +3,11 @@ SSH_AUTH_SOCK='\\.\pipe\openssh-ssh-agent'
 {{ else }}
 SSH_AUTH_SOCK=~/.ssh/agent.sock
 {{ end }}
+{{ if .work }}
+ssh_key=~/.ssh/id_ed25519
+{{ else }}
 ssh_key=~/.ssh/id_ed25519_sk_keyring
+{{ end }}
 
 agent_start() {
     (
