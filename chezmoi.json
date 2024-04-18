@@ -1,9 +1,0 @@
-{
-    "sourceDir": "/home/user/.dotfiles",
-    "data": {},
-    "env": {},
-    "progress": true,
-    "diff": {
-        "command": "code --diff"
-    }
-}
