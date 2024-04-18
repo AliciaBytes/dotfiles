@@ -1,6 +1,13 @@
+{{ $email := promptStringOnce . "email" "E-Mail" -}}
+{{ $name := promptStringOnce . "name" "Name" -}}
+{{ $work := promptBoolOnce . "work" "Is this a work system" }}
+
 data:
+  email: {{ $email | quote }}
+  name: {{ $name | quote }}
+  work: {{ $work }}
 env:
-progress: true,
+progress: true
 diff:
-    command: code
-    args: "--diff"
+  command: code
+  args: "--diff"
