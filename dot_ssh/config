@@ -1,0 +1,6 @@
+Host crumbles
+    HostName crumbles.aliciabytes.com
+    ForwardAgent yes
+
+Host *
+    User aliciabytes
