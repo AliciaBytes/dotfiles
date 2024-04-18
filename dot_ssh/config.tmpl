@@ -1,0 +1,12 @@
+Host crumbles
+    HostName crumbles.aliciabytes.com
+    ForwardAgent yes
+
+Host *
+    User aliciabytes
+    {{ if ne .chezmoi.os "windows" -}}
+    ControlMaster auto
+    ControlPersist 3600
+    ControlPath ~/.ssh/sockets/socket-%r@%h:%p
+    ServerAliveInterval 120
+    {{ end -}}
