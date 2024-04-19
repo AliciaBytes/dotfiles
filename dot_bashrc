@@ -30,7 +30,7 @@ fi
 
 if [ -d ~/.bash_aliases.d ]; then
     for aliasfile in ~/.bash_aliases.d/*; do
-        . $aliasfile
+        . "$aliasfile"
     done
 fi
 
@@ -43,7 +43,7 @@ fi
 
 if [ -d ~/.bash_functions.d ]; then
     for functionfile in ~/.bash_functions.d/*; do
-        . $functionfile
+        . "$functionfile"
     done
 fi
 
