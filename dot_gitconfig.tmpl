@@ -1,5 +1,7 @@
 [alias]
     attribution = blame -w -C -C -C
+[blame]
+    date = iso
 [branch]
     sort = -committerdate
 [commit]
@@ -22,6 +24,7 @@
     cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
     prune = true
+[format]
 [gpg]
     {{ if eq .chezmoi.os "windows" -}}
     program = c:/Program Files (x86)/GnuPG/bin/gpg.exe
@@ -33,7 +36,7 @@
 [interactive]
     diffFilter = delta
 [log]
-    date = iso
+    date = format:%F %T
     showSignature = true
 [merge]
     conflictStyle = zdiff3
@@ -41,6 +44,8 @@
     tool = vscode
 [mergetool "vscode"]
     cmd = code --wait $MERGED
+[pager]
+[pretty]
 [pull]
     rebase = true
 [push]
