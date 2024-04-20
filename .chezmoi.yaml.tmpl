@@ -1,6 +1,6 @@
-{{ $email := promptStringOnce . "email" "E-Mail" -}}
-{{ $name := promptStringOnce . "name" "Name" -}}
-{{ $work := promptBoolOnce . "work" "Is this a work system" }}
+{{ $email := promptStringOnce . "email" "E-Mail" "alicia@aliciabytes.com" -}}
+{{ $name := promptStringOnce . "name" "Name" "Alicia Jasmine Miedl" -}}
+{{ $work := promptBoolOnce . "work" "Is this a work system" false }}
 
 data:
   email: {{ $email | quote }}
