@@ -6,6 +6,7 @@ packages:
       interactive:
         - "Git.Git"
       silent:
+        - "dandavison.delta"
         - "Espanso.Espanso"
         - "GitHub.cli"
         - "GnuPG.Gpg4win"
