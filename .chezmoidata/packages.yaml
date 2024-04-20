@@ -7,6 +7,7 @@ packages:
         - "Git.Git"
       silent:
         - "Espanso.Espanso"
+        - "GitHub.cli"
         - "GnuPG.Gpg4win"
         - "Microsoft.PowerShell"
         - "Microsoft.PowerToys"
