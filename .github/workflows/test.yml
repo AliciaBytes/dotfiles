@@ -1,0 +1,11 @@
+name: Test
+on:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test setting up my dotfiles
+        run: '"$(curl -fsLS get.chezmoi.io)" -- init --promptDefaults --apply $GITHUB_REPOSITORY'
