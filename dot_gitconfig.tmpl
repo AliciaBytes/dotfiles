@@ -14,7 +14,9 @@
     autocrlf = input
     editor = code --wait
     excludesfile = ~/.gitignore
+    {{ if ne .chezmoi.osRelease.versionID "22.04" -}}
     fsmonitor = true
+    {{ end -}}
     pager = delta
     untrackedcache = true
 [diff]
@@ -40,7 +42,9 @@
     date = format:%F %T
     showSignature = true
 [merge]
+    {{ if ne .chezmoi.osRelease.versionID "22.04" -}}
     conflictStyle = zdiff3
+    {{ end -}}
     ff = only
     tool = vscode
 [mergetool "vscode"]
