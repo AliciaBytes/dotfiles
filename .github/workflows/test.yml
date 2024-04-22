@@ -9,8 +9,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - name: Test setting up my dotfiles
-        # Note that this can fail in powershell without us getting an error
-        # because of the way powershell behaves. But that's fine for us for now.
-        run: 'sh -c "$(curl -fsLS get.chezmoi.io)" -- init --no-tty --promptDefaults --apply $GITHUB_REPOSITORY'
+      - name: Set up chezmoi
+        run: 'sh -c "$(curl -fsLS get.chezmoi.io)" -- init -S . --no-tty --promptDefaults --apply'
         shell: bash
