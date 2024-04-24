@@ -4,6 +4,18 @@ case $- in
 *) return ;;
 esac
 
+# Set up ssh-agent properly if a related script exists.
+if [ -f ~/.ssh/agent.sh ]; then
+    . ~/.ssh/agent.sh
+fi
+
+{{ if eq .chezmoi.os "linux" -}}
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]; then
+    shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
+    exec fish $LOGIN_OPTION
+fi
+{{ end -}}
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
@@ -45,11 +57,6 @@ if [ -d ~/.bash_functions.d ]; then
     for functionfile in ~/.bash_functions.d/*; do
         . "$functionfile"
     done
-fi
-
-# Set up ssh-agent properly if a related script exists.
-if [ -f ~/.ssh/agent.sh ]; then
-    . ~/.ssh/agent.sh
 fi
 
 eval "$(starship init bash)"
