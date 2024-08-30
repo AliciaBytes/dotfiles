@@ -11,6 +11,7 @@ ssh_key=~/.ssh/id_ed25519_sk_keyring
 
 agent_start() {
     (
+        rm "$HOME"/.ssh/agent.sock >/dev/null 2>&1
         umask 077
         ssh-agent -a "$SSH_AUTH_SOCK" >|/dev/null
     )

@@ -1,10 +1,11 @@
-function update npm update --location=global
+function update
+    npm update --location=global
     rustup self update
     rustup update
     cargo install cargo-binstall
 
     # Sync, search and backup shell history with Atuin
-    cargo binstall --no-confirm atuin
+    # cargo binstall --no-confirm atuin
 
     # Cargo plugin for generating a license listing for all dependencies of a crate
     cargo binstall --no-confirm cargo-about

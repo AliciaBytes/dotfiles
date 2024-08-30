@@ -3,4 +3,5 @@ if status is-interactive
     source (starship init fish --print-full-init | psub)
     atuin init fish | source
     fnm env --use-on-cd | source
+    set -gx EDITOR code --wait
 end
