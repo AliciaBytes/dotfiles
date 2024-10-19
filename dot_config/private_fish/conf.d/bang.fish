@@ -1,5 +1,5 @@
 function last_history_item
-    echo $history[1]
+    atuin history last --cmd-only
 end
 
 abbr -a !! --position anywhere --function last_history_item
