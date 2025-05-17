@@ -7,6 +7,7 @@ function update
     # Sync, search and backup shell history with Atuin
     # cargo binstall --no-confirm atuin
 
+    cargo binstall --no-confirm cargo-watch
     # Cargo plugin for generating a license listing for all dependencies of a crate
     cargo binstall --no-confirm cargo-about
     # Binary installation for rust projects
@@ -31,6 +32,7 @@ function update
     cargo binstall --no-confirm ripgrep
     # Count your code, quickly.
     cargo binstall --no-confirm tokei
+    cargo binstall --no-confirm typst-cli
 
     cargo cache -e
 end

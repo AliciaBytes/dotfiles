@@ -1,10 +1,27 @@
 [alias]
+    # Give more detailed information about changes to code
     attribution = blame -w -C -C -C
+
+    # Clean upn old dead and merged branches
     cleanup = "!git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+
+    # `git log` with patches shown with difftastic.
+    dl = -c diff.external=difft log -p --ext-diff
+    dlog = -c diff.external=difft log - --ext-diff
+
+    # Show the most recent commit with difftastic.
+    ds = -c diff.external=difft show --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+
+    # `git diff` with difftastic.
+    dft = -c diff.external=difft diff
+    ddiff = -c diff.external=difft diff
 [blame]
     date = iso
 [branch]
     sort = -committerdate
+[column]
+    ui = auto
 [commit]
     cleanup = scissors
     gpgSign = true
@@ -14,19 +31,22 @@
     autocrlf = input
     editor = code --wait
     excludesfile = ~/.gitignore
-    {{ if eq .chezmoi.os "windows" -}}
-    fsmonitor = true
-    {{ end -}}
     pager = delta
-    untrackedcache = true
+    untrackedCache = true
+    fsmonitor = true
 [diff]
     algorithm = histogram
     submodule = log
     tool = vscode
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
     prune = true
+    pruneTags = true
+    all = true
 [format]
 [gpg]
     {{ if eq .chezmoi.os "windows" -}}
@@ -34,6 +54,8 @@
     {{ else -}}
     program = gpg
     {{ end -}}
+[help]
+    autocorrect = prompt
 [init]
     defaultBranch = main
 [interactive]
@@ -42,11 +64,7 @@
     date = format:%F %T
     showSignature = true
 [merge]
-    {{ if eq .chezmoi.os "windows" -}}
-    conflictStyle = zdiff3
-    {{ else -}}
-    conflictStyle = diff3
-    {{ end -}}
+    conflictstyle = zdiff3
     ff = only
     tool = vscode
 [mergetool "vscode"]
@@ -58,17 +76,21 @@
 [push]
     autoSetupRemote = true
     default = simple
+    followTags = true
 [rebase]
     autosquash = true
     autostash = true
+    updateRefs = true
 [rerere]
     enabled = true
+    autoupdate = true
 [status]
     submoduleSummary = true
 [submodule]
     recurse = true
 [tag]
     gpgSign = true
+    sort = version:refname
 [url "git@github.com:"]
     insteadOf = "https://github.com/"
 [url "git@github.com:"]
